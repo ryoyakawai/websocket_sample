@@ -1,0 +1,34 @@
+<html>
+  <head></head>
+  <body>
+    <button id="send"> HELLO!! </button>
+    <script>
+     const TargetWsServer = "ws://localhost:9090"
+     const sock = new WebSocket(TargetWsServer);
+
+     const wrapIntoDiv = (msg='') => {
+       let elem = document.createElement('div')
+       elem.innerHTML = msg
+       return elem
+     }
+
+     sock.addEventListener('open',function(e){
+       let msg = `Socket connected [${Date().toString()}]`
+       console.log(msg);
+       document.body.appendChild(wrapIntoDiv(msg))
+     });
+
+     // サーバーからデータを受け取る
+     sock.addEventListener('message', (e) => {
+       document.body.appendChild(wrapIntoDiv(e.data))
+     });
+
+     // Button(id="send")タップでメッセージを送信
+     document.querySelector('#send').addEventListener('mousedown', () => {
+       let msg = `Client says=[Clicked:${Date().toString()}]`
+       sock.send(msg)
+     })
+
+    </script>
+  </body>
+</html>
