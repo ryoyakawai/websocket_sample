@@ -27,5 +27,5 @@ $ python -m SimpleHTTPServer 8090
 
 ```
 
-## Test app
+## Run app by your browser
 Open browser and access to http://localhost:8090 .
