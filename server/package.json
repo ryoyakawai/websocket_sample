@@ -10,6 +10,6 @@
   "author": "Ryoya KAWAI <ryoya.kawai@gmail.com> (https://ryoyakawai.com/)",
   "license": "ISC",
   "dependencies": {
-    "ws": "^7.3.0"
+    "ws": "^7.4.6"
   }
 }
